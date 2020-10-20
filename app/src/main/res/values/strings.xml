@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Aplikasi MyJob</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="btlogin">Login</string>
+    <string name="pass" />
+    <string name="passs">Password</string>
+    <string name="un">Username</string>
+    <string name="katasandi">Password</string>
+    <string name="tombol_login">Login</string>
+    <string name="daftar">Daftar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

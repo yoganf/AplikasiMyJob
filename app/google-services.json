@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1067827008232",
+    "firebase_url": "https://myjob-18bd5.firebaseio.com",
+    "project_id": "myjob-18bd5",
+    "storage_bucket": "myjob-18bd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067827008232:android:7cbd35e9c46213ed7baf5d",
+        "android_client_info": {
+          "package_name": "com.example.myjobaplicaton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067827008232-q23fq6i5nv07qcdhie0p557jp80qdgnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK2bTN7Oaq7oJX1R6I6B2sLEE7fTK_K2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067827008232-q23fq6i5nv07qcdhie0p557jp80qdgnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067827008232:android:3d355fdfc88d81547baf5d",
+        "android_client_info": {
+          "package_name": "com.yoga.aplikasimyjob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067827008232-q23fq6i5nv07qcdhie0p557jp80qdgnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK2bTN7Oaq7oJX1R6I6B2sLEE7fTK_K2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067827008232-q23fq6i5nv07qcdhie0p557jp80qdgnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
