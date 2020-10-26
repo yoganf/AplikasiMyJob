@@ -44,13 +44,14 @@
             android:layout_width="128dp"
             android:layout_height="81dp"
             android:layout_marginTop="8dp"
+            android:onClick="pindah"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user_pp" />
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/tx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -68,7 +69,7 @@
             android:layout_marginStart="8dp"
             android:textColor="@color/design_default_color_primary_dark"
             app:layout_constraintStart_toEndOf="@+id/btn_back2"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nama"
+            app:layout_constraintTop_toBottomOf="@+id/tx"
             tools:text="role" />
 
         <ImageView
@@ -113,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_profil" />
 
         <TextView
-            android:id="@+id/tv_tarif"
+            android:id="@+id/tv_alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -153,7 +154,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:editable="false"
             android:textColor="@color/dialog_choose_icon_color"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/textView33"
             app:layout_constraintTop_toBottomOf="@+id/tv_alamat"

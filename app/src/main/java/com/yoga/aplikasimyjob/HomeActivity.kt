@@ -1,5 +1,6 @@
 package com.yoga.aplikasimyjob
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -27,11 +28,9 @@ class HomeActivity : AppCompatActivity() {
         }
 
         iv_menu2.setOnClickListener {
-            setFragment(fragmentpencarian)
-
-            changeIcon(iv_menu1, R.drawable.home_icon)
-            changeIcon(iv_menu2, R.drawable.search_icon)
-            changeIcon(iv_menu3, R.drawable.profil_icon)
+            val intent = Intent(this@HomeActivity,
+                PencarianActivity::class.java)
+            startActivity(intent)
         }
 
         iv_menu3.setOnClickListener {

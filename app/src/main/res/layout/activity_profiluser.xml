@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
-        android:id="@+id/tv_nama"
+        android:id="@+id/tx"
         android:layout_width="200dp"
         android:layout_height="32dp"
         android:layout_marginStart="30dp"
@@ -138,7 +138,7 @@
         android:text="Desinger"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
+        app:layout_constraintTop_toBottomOf="@+id/tx" />
 
     <ImageView
         android:id="@+id/iv_profil"

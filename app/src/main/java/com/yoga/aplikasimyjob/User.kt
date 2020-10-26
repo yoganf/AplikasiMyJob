@@ -17,4 +17,6 @@ class User (
     var tarif:String ?="",
     var urlportofolio:String ?="",
     var notlp:String ?=""
+
 ): Parcelable
+

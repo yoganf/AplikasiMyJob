@@ -1,6 +1,5 @@
 package com.yoga.aplikasimyjob.Dashboard
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -39,7 +38,7 @@ class DashboardFragment : Fragment() {
         preferences = Preferences(activity!!.applicationContext)
         mDatabase = FirebaseDatabase.getInstance().getReference("User")
 
-        tv_nama.setText(preferences.getValues("nama"))
+        tx.setText(preferences.getValues("nama"))
         jenis_pekerjaan.setText(preferences.getValues("role"))
 
         Glide.with(this)
