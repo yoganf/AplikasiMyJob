@@ -8,7 +8,7 @@
     tools:context=".Dashboard.DashboardFragment">
 
     <TextView
-        android:id="@+id/tx"
+        android:id="@+id/tv_nama"
         android:layout_width="200dp"
         android:layout_height="32dp"
         android:layout_marginStart="30dp"
@@ -26,7 +26,7 @@
         android:layout_marginStart="32dp"
         android:textColor="@color/colorblue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nama"
         tools:text="Desinger" />
 
     <ImageView

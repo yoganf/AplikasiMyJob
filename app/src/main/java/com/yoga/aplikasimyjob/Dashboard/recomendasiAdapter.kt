@@ -34,10 +34,10 @@ class recomendasiAdapter(private var data : List<User>,
     }
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        private val tvNama: TextView = view.findViewById(R.id.tx)
+        private val tvNama: TextView = view.findViewById(R.id.tv_nama)
         private val tvAlamat: TextView = view.findViewById(R.id.tv_alamat)
         private val tvTitle: TextView = view.findViewById(R.id.tv_role)
-        private val ivImage: ImageView = view.findViewById(R.id.iv_poster_image)
+        private val ImageView: ImageView = view.findViewById(R.id.iv_poster)
 
         fun bindItem(data: User, listener: (User) -> kotlin.Unit, context: Context) {
             tvTitle.setText(data.role)
@@ -45,7 +45,7 @@ class recomendasiAdapter(private var data : List<User>,
             tvAlamat.setText(data.alamat)
             Glide.with(context)
                 .load(data.urlportofolio)
-                .into(ivImage)
+                .into(ImageView)
 
             itemView.setOnClickListener{
                 listener(data)

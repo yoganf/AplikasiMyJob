@@ -8,7 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail.iv_poster
-import kotlinx.android.synthetic.main.activity_detail.tx
+import kotlinx.android.synthetic.main.activity_detail.tv_nama
 import kotlinx.android.synthetic.main.activity_detail.tv_alamat
 
 class DetailActivity : AppCompatActivity() {
@@ -23,11 +23,12 @@ class DetailActivity : AppCompatActivity() {
             var intent = Intent(this@DetailActivity, HomeActivity::class.java)
             startActivity(intent)
         }
+
         val data = intent.getParcelableExtra<User>("data")
         mDatabase = FirebaseDatabase.getInstance().getReference("User")
             .child(data.judul.toString())
 
-        tx.text = data.nama
+        tv_nama.text = data.nama
         tv_alamat.text = data.username
 
         Glide.with(this)
@@ -37,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
 
         tv_judul2.text = data.judul
         tv_role.text = data.role
-        tv_alamat.text = data.tarif
+        tv_tarif.text = data.tarif
         tv_alamat.text = data.alamat
         tv_nomertelfon.text=data.notlp
         tv_deskripsi.text=data.deskripsi
@@ -45,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(data.urlportofolio)
             .into(iv_poster)
+
 
     }
 }

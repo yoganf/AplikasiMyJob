@@ -38,7 +38,7 @@ class DashboardFragment : Fragment() {
         preferences = Preferences(activity!!.applicationContext)
         mDatabase = FirebaseDatabase.getInstance().getReference("User")
 
-        tx.setText(preferences.getValues("nama"))
+        tv_nama.setText(preferences.getValues("nama"))
         jenis_pekerjaan.setText(preferences.getValues("role"))
 
         Glide.with(this)

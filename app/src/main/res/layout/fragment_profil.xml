@@ -49,7 +49,7 @@
             app:srcCompat="@drawable/user_pp" />
 
         <Button
-            android:id="@+id/btn_e_profil"
+            android:id="@+id/bt_edit_profil"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
              />
 
         <Button
-            android:id="@+id/btn_e_porto"
+            android:id="@+id/bt_edit_portofolio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -76,7 +76,7 @@
             android:textColor="@color/colorblue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_e_profil" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_edit_profil" />
 
         <TextView
             android:id="@+id/textView26"
@@ -154,7 +154,7 @@
             android:textColor="@color/colorblue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_e_porto" />
+            app:layout_constraintTop_toBottomOf="@+id/bt_edit_portofolio" />
 
         <TextView
             android:id="@+id/textView39"

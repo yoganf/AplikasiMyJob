@@ -51,7 +51,7 @@
             app:srcCompat="@drawable/user_pp" />
 
         <TextView
-            android:id="@+id/tx"
+            android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -69,7 +69,7 @@
             android:layout_marginStart="8dp"
             android:textColor="@color/design_default_color_primary_dark"
             app:layout_constraintStart_toEndOf="@+id/btn_back2"
-            app:layout_constraintTop_toBottomOf="@+id/tx"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama"
             tools:text="role" />
 
         <ImageView
@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_profil" />
 
         <TextView
-            android:id="@+id/tv_alamat"
+            android:id="@+id/tv_tarif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

@@ -5,14 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.activity_profiluser.*
 import kotlinx.android.synthetic.main.fragment_profil.*
 
 
@@ -32,10 +28,14 @@ class ProfilFragment : Fragment() {
 
     }
 
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+
+        bt_edit_profil.setOnClickListener {
+            var intent = Intent(this@ProfilFragment.context, EditDataProfilActivity::class.java)
+            startActivity(intent)
+        }
 
 
         preferences = Preferences(activity!!.applicationContext)
@@ -49,10 +49,6 @@ class ProfilFragment : Fragment() {
             .load(preferences.getValues("url"))
             .apply(RequestOptions.circleCropTransform())
             .into(iv_profil3)
-
-        btn_e_profil.setOnClickListener{
-            val intent=(EditDataProfilActivity::class.java)
-        }
 
     }
 

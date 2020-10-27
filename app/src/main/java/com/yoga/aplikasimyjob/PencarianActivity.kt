@@ -1,21 +1,26 @@
 package com.yoga.aplikasimyjob
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
-import com.yoga.aplikasimyjob.Dashboard.recomendasiAdapter
-import kotlinx.android.synthetic.main.row_item_recomendasi.view.*
+import kotlinx.android.synthetic.main.item_pencarian.*
+import kotlinx.android.synthetic.main.item_pencarian.view.*
+import kotlinx.android.synthetic.main.row_item_recomendasi.view.tv_alamat
+import kotlinx.android.synthetic.main.row_item_recomendasi.view.tv_role
 
 
 class PencarianActivity : AppCompatActivity() {
@@ -59,6 +64,16 @@ class PencarianActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun copyTextToClipboard() {
+        val textToCopy = tv_nomer.text
+        val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipData = ClipData.newPlainText("text", textToCopy)
+        clipboardManager.setPrimaryClip(clipData)
+        Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_LONG).show()
+
+    }
+
     private fun loadFirebaseData(searchText: String) {
 
         if(searchText.isEmpty()){
@@ -76,7 +91,7 @@ class PencarianActivity : AppCompatActivity() {
             FirebaseRecyclerAdapter = object : FirebaseRecyclerAdapter<userS, UsersViewHolder>(
 
                 userS::class.java,
-                R.layout.row_item_search,
+                R.layout.item_pencarian,
                 UsersViewHolder::class.java,
                 firebaseSearchQuery
 
@@ -90,9 +105,15 @@ class PencarianActivity : AppCompatActivity() {
 
 
                     viewHolder.mview.tv_role.setText(model?.role)
-                    viewHolder.mview.tx.setText(model?.nama)
+                    viewHolder.mview.tv_nama.setText(model?.nama)
                     viewHolder.mview.tv_alamat.setText(model?.alamat)
-                    Picasso.with(applicationContext).load(model?.urlportofolio).into(viewHolder.mview.iv_poster_image)
+                    viewHolder.mview.tv_tarif.setText(model?.tarif)
+                    viewHolder.mview.tv_deskripsi.setText(model?.deskripsi)
+                    viewHolder.mview.tv_nomer.setText(model?.notlp)
+
+                    Picasso.with(applicationContext).load(model?.urlportofolio).into(viewHolder.mview.iv_poster)
+                    Picasso.with(applicationContext).load(model?.url).into(viewHolder.mview.iv_profil)
+
 
                 }
 
@@ -108,7 +129,6 @@ class PencarianActivity : AppCompatActivity() {
 
     }
 
-    fun pindah(view: View) {
-        startActivity(Intent(this@PencarianActivity, DetailActivity::class.java))
-    }
+    fun copy(view: View) {
+        copyTextToClipboard()}
 }
