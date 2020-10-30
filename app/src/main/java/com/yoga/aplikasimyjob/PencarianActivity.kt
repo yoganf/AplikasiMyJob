@@ -30,7 +30,6 @@ class PencarianActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
     lateinit var context : Context
     lateinit var mDatabase : DatabaseReference
-    private var dataList = ArrayList<User>()
 
     lateinit var FirebaseRecyclerAdapter : FirebaseRecyclerAdapter<userS, UsersViewHolder>
 
@@ -70,7 +69,7 @@ class PencarianActivity : AppCompatActivity() {
         val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText("text", textToCopy)
         clipboardManager.setPrimaryClip(clipData)
-        Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Nomer Telfon Tersalin, Silahkan Mulai Menghubungi", Toast.LENGTH_LONG).show()
 
     }
 
@@ -84,7 +83,7 @@ class PencarianActivity : AppCompatActivity() {
         }else {
 
 
-            val firebaseSearchQuery = mDatabase.orderByChild("role").startAt(searchText).endAt(
+            val firebaseSearchQuery = mDatabase.orderByChild("judul").startAt(searchText).endAt(
                 searchText + "\uf8ff"
             )
 
@@ -103,7 +102,7 @@ class PencarianActivity : AppCompatActivity() {
                     position: Int
                 ) {
 
-
+                    viewHolder.mview.tv_judul.setText(model?.judul)
                     viewHolder.mview.tv_role.setText(model?.role)
                     viewHolder.mview.tv_nama.setText(model?.nama)
                     viewHolder.mview.tv_alamat.setText(model?.alamat)

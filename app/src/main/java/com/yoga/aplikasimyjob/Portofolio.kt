@@ -11,5 +11,6 @@ class Portofolio (
     var judul:String ?="",
     var role:String ?="",
     var tarif:String ?="",
+    var notlp:String ?="",
     var urlportofolio:String ?="",
 ): Parcelable

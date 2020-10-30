@@ -24,7 +24,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.noActionBar">
-        <activity android:name=".EditDataProfilActivity"></activity>
+        <activity android:name=".UploadFotoPortofolioActivity"></activity>
+        <activity android:name=".EditPortofolioActivity" />
+        <activity android:name=".EditDataProfilActivity" />
         <activity android:name=".PencarianActivity" />
         <activity android:name=".OnBoardDuaActivity" />
         <activity android:name=".DaftarFotoActivity" />

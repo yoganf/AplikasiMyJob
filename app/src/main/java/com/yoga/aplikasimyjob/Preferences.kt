@@ -19,4 +19,11 @@ class Preferences (val context: Context) {
     fun getValues (key: String) : String? {
         return sharedPreferences.getString(key, "")
     }
+
+    fun clear() {
+        val editor:SharedPreferences.Editor=sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+
+    }
 }

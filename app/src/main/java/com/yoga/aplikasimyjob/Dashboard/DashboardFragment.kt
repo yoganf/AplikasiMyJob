@@ -1,5 +1,6 @@
 package com.yoga.aplikasimyjob.Dashboard
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -39,7 +40,7 @@ class DashboardFragment : Fragment() {
         mDatabase = FirebaseDatabase.getInstance().getReference("User")
 
         tv_nama.setText(preferences.getValues("nama"))
-        jenis_pekerjaan.setText(preferences.getValues("role"))
+        tv_email.setText(preferences.getValues("email"))
 
         Glide.with(this)
             .load(preferences.getValues("url"))
@@ -65,7 +66,7 @@ class DashboardFragment : Fragment() {
                 }
                 rv_recomendasi.adapter = recomendasiAdapter(dataList) {
                     val intent = Intent(context, DetailActivity::class.java)
-                        intent.putExtra("data", it)
+                    intent.putExtra("data", it)
                     startActivity(intent)
                 }
             }

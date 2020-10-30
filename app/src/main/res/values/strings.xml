@@ -8,6 +8,40 @@
     <string name="katasandi">Password</string>
     <string name="tombol_login">Login</string>
     <string name="daftar">Daftar</string>
+    <string name="selected_item">Pekerjaan terpilih:</string>
+    <string name="selected_item2">Kota terpilih:</string>
+    <string-array name="pilih_kategori">
+        <item>"-Pilih Jenis Pekerjaan-"</item>
+        <item>"Analisis"</item>
+        <item>"Konsultan"</item>
+        <item>"Voice Over"</item>
+        <item>"Data Entry"</item>
+        <item>"Designer"</item>
+        <item>"Digital Marketing"</item>
+        <item>"Conten Creator"</item>
+        <item>"Penulis"</item>
+        <item>"Programer"</item>
+        <item>"Editor"</item>
+        <item>"Data Scientist"</item>
+        <item>"Perancangan keuangan"</item>
+        <item>"Foto Grafer"</item>
+        <item>"Developer"</item>
+        <item>"Konstruksi"</item>
+        <item>"Lainnya"</item>
+    </string-array>
+    <string-array name="pilih_kota">
+        <item>-Pilih Kota-</item>
+        <item>"Jakarta Selatan"</item>
+        <item>"Jakarta Utara"</item>
+        <item>"jakarta Timur"</item>
+        <item>"Jakarta Barat"</item>
+        <item>"Jakarta Pusat"</item>
+        <item>"Bogor"</item>
+        <item>"Kota Depok"</item>
+        <item>"Tangerang"</item>
+        <item>"Kota Tangerang Selatan"</item>
+        <item>"Bekasi"</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

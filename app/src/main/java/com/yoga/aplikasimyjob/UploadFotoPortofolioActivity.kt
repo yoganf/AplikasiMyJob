@@ -3,14 +3,9 @@ package com.yoga.aplikasimyjob
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-
-
-class EditDataProfilActivity : AppCompatActivity() {
+class UploadFotoPortofolioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_data_profil)
-
-
-
+        setContentView(R.layout.activity_upload_foto_portofolio)
     }
 }

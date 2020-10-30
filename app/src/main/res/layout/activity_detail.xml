@@ -63,13 +63,23 @@
             tools:text="Yoga" />
 
         <TextView
-            android:id="@+id/tv_role"
+            android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/design_default_color_primary_dark"
             app:layout_constraintStart_toEndOf="@+id/btn_back2"
             app:layout_constraintTop_toBottomOf="@+id/tv_nama"
+            tools:text="role" />
+
+        <TextView
+            android:id="@+id/tv_role"
+            android:layout_width="244dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/design_default_color_primary_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_judul2"
             tools:text="role" />
 
         <ImageView
@@ -95,6 +105,7 @@
             android:layout_marginBottom="50dp"
             android:background="@drawable/button2"
             android:text="Hubungi"
+            android:onClick="hubungi"
             android:textColor="@color/colorblue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:text="Design Grafis"
             android:textColor="@color/colorblue"
             android:textSize="24sp"
@@ -117,7 +128,7 @@
             android:id="@+id/tv_tarif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="16dp"
             android:textColor="@color/colorblue"
             android:textSize="24sp"
@@ -143,6 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:editable="true"
             android:textColor="@color/dialog_choose_text_color"
             android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/textView32"
@@ -154,7 +166,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:editable="false"
             android:textColor="@color/dialog_choose_icon_color"
             android:textIsSelectable="true"
             android:textSize="24sp"
