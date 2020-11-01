@@ -44,7 +44,7 @@ class recomendasiAdapter(private var data : List<User>,
             tvJudul.setText(data.judul)
             tvAlamat.setText(data.alamat)
             Glide.with(context)
-                .load(data.urlportofolio)
+                .load(data.url)
                 .into(ImageView)
 
             itemView.setOnClickListener{

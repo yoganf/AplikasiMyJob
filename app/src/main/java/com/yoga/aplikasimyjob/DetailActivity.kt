@@ -13,7 +13,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail.iv_poster
-import kotlinx.android.synthetic.main.activity_detail.iv_profil
 import kotlinx.android.synthetic.main.activity_detail.tv_nama
 import kotlinx.android.synthetic.main.activity_detail.tv_alamat
 import kotlinx.android.synthetic.main.activity_detail.tv_deskripsi
@@ -41,10 +40,10 @@ class DetailActivity : AppCompatActivity() {
         tv_judul2.text = data.judul
         tv_alamat.text = data.alamat
 
-        Glide.with(this)
-            .load(data.url)
-            .apply(RequestOptions.circleCropTransform())
-            .into(iv_profil)
+//        Glide.with(this)
+//            .load(data.url)
+//            .apply(RequestOptions.circleCropTransform())
+//            .into(iv_profil)
 
         tv_nama.text = data.nama
         tv_role.text = data.role
@@ -54,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
         tv_deskripsi.text=data.deskripsi
 
         Glide.with(this)
-            .load(data.urlportofolio)
+            .load(data.url)
             .into(iv_poster)
 
 

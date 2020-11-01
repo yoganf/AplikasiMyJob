@@ -1,178 +1,200 @@
 package com.yoga.aplikasimyjob
 
+import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.view.get
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
 import kotlinx.android.synthetic.main.activity_daftar.*
 import kotlinx.android.synthetic.main.activity_daftar.btn_back
 import kotlinx.android.synthetic.main.activity_daftar.btn_mulai
+import kotlinx.android.synthetic.main.activity_daftar_foto.*
 import kotlinx.android.synthetic.main.activity_edit_portofolio.*
+import kotlinx.android.synthetic.main.activity_edit_portofolio.btn_save
+import kotlinx.android.synthetic.main.activity_edit_portofolio.iv_add
+import kotlinx.android.synthetic.main.activity_edit_portofolio.tv_hello
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+import java.util.*
 
 
 class EditPortofolioActivity : AppCompatActivity() {
+    val REQUEST_IMAGE_CAPTURE = 1
+    var statusAdd:Boolean = false
+    lateinit var filePath: Uri
 
-    lateinit var sjudul:String
-    lateinit var snomertelfon:String
-    lateinit var starif:String
-    lateinit var sdeskripsi:String
-    lateinit var spilihkategoripekerjaan : String
-    lateinit var spilihkota : String
-
+    lateinit var url: String
+    lateinit var user : User
+    lateinit var storage : FirebaseStorage
     private lateinit var mFirebaseDatabase: DatabaseReference
     private lateinit var mFirebaseInstance: FirebaseDatabase
-    private lateinit var mDatabase: DatabaseReference
-    private lateinit var preferences: Preferences
-
+    lateinit var storageReferensi : StorageReference
+    lateinit var preferences: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_portofolio)
 
-//        val pilihpekerjaan = resources.getStringArray(R.array.pilih_kategori)
+        preferences = Preferences(this)
+        storage = FirebaseStorage.getInstance()
+        storageReferensi = storage.getReference()
+
+        mFirebaseInstance = FirebaseDatabase.getInstance()
+        mFirebaseDatabase = mFirebaseInstance.getReference("User")
+        user = intent.getParcelableExtra ("data")
+
+        tv_hello.text = "Selamat Datang\n"+user.nama
+//        tv_hello.setText(preferences.getValues("nama"))
+
+        iv_add.setOnClickListener{
+            if (statusAdd) {
+                statusAdd = false
+                btn_save.visibility = View.VISIBLE
+                iv_add.setImageResource(R.drawable.ic_btn_upload)
+                iv_poster.setImageResource(R.drawable.user_pp)
+            } else {
+                //               Dexter.withActivity(this)
+                //                 .withPermission(android.Manifest.permission.CAMERA)
+                //               .withListener(this)
+                //             .check()
+                ImagePicker.with(this)
+                    .cropSquare()
+                    .compress(1024)
+                    .start()
+            }
+        }
 //
-//        val spinner = findViewById<Spinner>(R.id.spinnerPekerjaan)
-//        if (spinner != null) {
-//            val adapter = ArrayAdapter(
-//                this,
-//                android.R.layout.simple_spinner_item, pilihpekerjaan
-//            )
-//            spinner.adapter = adapter
-//        }
-//
-//        spinner.onItemSelectedListener = object :
-//                AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>,
-//                view: View, position: Int, id: Long)
-//            {
-//                Toast.makeText(
-//                    this@EditPortofolioActivity,
-//                    getString(R.string.selected_item) + " " +
-//                            "" + pilihpekerjaan[position], Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // write code to perform some action
-//            }
-//        }
-//
-//        val pilihkota = resources.getStringArray(R.array.pilih_kota)
-//        val spinner2 = findViewById<Spinner>(R.id.spinnerKota)
-//
-//        if (spinner2 != null) {
-//            val adapter = ArrayAdapter(
-//                this,
-//                android.R.layout.simple_spinner_item, pilihkota
-//            )
-//            spinner2.adapter = adapter
-//        }
-//        spinner2.onItemSelectedListener = object :
-//            AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>,
-//                view: View, position: Int, id: Long
-//            ) {
-//                Toast.makeText(
-//                    this@EditPortofolioActivity,
-//                    getString(R.string.selected_item2) + " " +
-//                            "" + pilihkota[position], Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // write code to perform some action
-//            }
-//        }
-//
-//        btn_back.setOnClickListener {
+//        btn_home.setOnClickListener{
 //            finishAffinity()
 //
-//            val intent = Intent(this@EditPortofolioActivity,
-//                ProfilFragment::class.java)
-//            startActivity(intent)
+//            var goHome = Intent(this@DaftarFotoActivity, HomeActivity::class.java)
+//            startActivity(goHome)
 //        }
-//
-//        mFirebaseInstance = FirebaseDatabase.getInstance()
-//        mDatabase = FirebaseDatabase.getInstance().getReference()
-//        mFirebaseDatabase = mFirebaseInstance.getReference("User")
-//
-//        preferences = Preferences(this)
-//
-//        btn_mulai.setOnClickListener {
-//
-//            sjudul = et_judul.text.toString()
-//            snomertelfon = et_nmr_tlp.text.toString()
-//            starif = et_tarifjasa.text.toString()
-//            sdeskripsi = et_deskripsi.text.toString()
-//            spilihkategoripekerjaan = spinnerPekerjaan.selectedItem.toString()
-//            spilihkota = spinnerKota.selectedItem.toString()
-//
-//            if (sjudul.equals("")) {
-//                et_judul.error = "Silahkan isi judul jasa yang ditawarkan"
-//                et_judul.requestFocus()
-//            } else if (snomertelfon.equals("")) {
-//                et_nmr_tlp.error = "Silahkan isi nomer telfon anda"
-//                et_nmr_tlp.requestFocus()
-//            } else if (starif.equals("")) {
-//                et_tarifjasa.error = "Silahkan isi tarif jasa anda"
-//                et_tarifjasa.requestFocus()
-//            } else if (sdeskripsi.equals("")) {
-//                et_deskripsi.error = "Silahkan isi deskripsi jasa yang ditawarkan"
-//                et_deskripsi.requestFocus()
-//            } else {
-//                saveUser(sjudul, snomertelfon, starif, sdeskripsi,spilihkategoripekerjaan,spilihkota)
-//
-//            }
-//        }
-//    }
-//    private fun saveUser(sjudul: String, snomertelfon: String, starif: String, sdeskripsi: String,
-//                         spilihkategoripekerjaan: String, spilihkota : String) {
-//
-//        val user = User()
-//        user.judul = sjudul
-//        user.notlp = snomertelfon
-//        user.tarif = starif
-//        user.deskripsi = sdeskripsi
-//        user.alamat = spilihkota
-//        user.role = spilihkategoripekerjaan
-//
-//        if (snomertelfon != null) {
-//            checkingNomerTelfon(snomertelfon, user)
-//
-//        }
-//    }
-//    private fun checkingNomerTelfon(inomer: String, data: User) {
-//        mFirebaseDatabase.child(inomer).addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                val user = dataSnapshot.getValue(User::class.java)
-//                if (user == null) {
-//                    mFirebaseDatabase.child(inomer).setValue(data)
-//
-//                    preferences.setValues("judul", data.judul.toString())
-//                    preferences.setValues("tarif", data.tarif.toString())
-//                    preferences.setValues("notlp", data.notlp.toString())
-//                    preferences.setValues("deskripsi", data.deskripsi.toString())
-//                    preferences.setValues("role",data.role.toString())
-//                    preferences.setValues("alamat",data.alamat.toString())
-//                    preferences.setValues("status", "1")
-//
-//                    val intent = Intent(this@EditPortofolioActivity,
-//                        UploadFotoPortofolioActivity::class.java).putExtra("data", data)
-//                    startActivity(intent)
-//
-//                } else {
-//                    Toast.makeText(this@EditPortofolioActivity, "Nomer telfon sudah digunakan", Toast.LENGTH_LONG).show()
-//
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Toast.makeText(this@EditPortofolioActivity, ""+error.message, Toast.LENGTH_LONG).show()
-//            }
-//        })
+
+        btn_save.setOnClickListener {
+            if (filePath != null) {
+                var progressDialog = ProgressDialog(this)
+                progressDialog.setTitle("Uploading...")
+                progressDialog.show()
+
+                var ref = storageReferensi.child("images/"+UUID.randomUUID().toString())
+                ref.putFile(filePath)
+                    .addOnSuccessListener {
+                        progressDialog.dismiss()
+                        Toast.makeText(this@EditPortofolioActivity, "Uploaded", Toast.LENGTH_LONG).show()
+
+                        ref.downloadUrl.addOnSuccessListener {
+                            saveToFirebase(it.toString())
+                            finishAffinity()
+                            var intent = Intent(this@EditPortofolioActivity, HomeActivity::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                    .addOnFailureListener {
+                        progressDialog.dismiss()
+                        Toast.makeText(this@EditPortofolioActivity, "Upload Failed", Toast.LENGTH_LONG).show()
+                    }
+                    .addOnProgressListener {
+                            taskSnapshot -> var progress = 100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
+                        progressDialog.setMessage("Upload "+progress.toInt()+" %")
+                    }
+
+            } else {
+
+            }
+        }
+    }
+
+    private fun saveToFirebase(urlportofolio: String) {
+
+        mFirebaseDatabase.child(user.username!!).addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                user.urlportofolio = urlportofolio
+                mFirebaseDatabase.child(user.username!!).setValue(user)
+
+                preferences.setValues("nama", user.nama.toString())
+                preferences.setValues("user", user.username.toString())
+                preferences.setValues("url", user.url.toString())
+                preferences.setValues("urlportofolio", user.urlportofolio.toString())
+                preferences.setValues("email", user.email.toString())
+                preferences.setValues("judul", user.judul.toString())
+                preferences.setValues("tarif", user.tarif.toString())
+                preferences.setValues("notlp", user.notlp.toString())
+                preferences.setValues("deskripsi", user.deskripsi.toString())
+                preferences.setValues("role", user.role.toString())
+                preferences.setValues("alamat", user.alamat.toString())
+                preferences.setValues("status", "1")
+
+                finishAffinity()
+                val intent = Intent (this@EditPortofolioActivity, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+    }
+
+    fun onPermissionGranted(response: PermissionGrantedResponse?) {
+        ImagePicker.with(this)
+            .cropSquare()
+            .compress(1024)
+            .start()
+    }
+
+    fun onPermissionRationaleShouldBeShown(
+        permission: PermissionRequest?,
+        token: PermissionToken?
+    ) {
+
+    }
+
+    fun onPermissionDenied(response: PermissionDeniedResponse?) {
+        Toast.makeText(this, "Tidak bisa menambahkan Foto Profil", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this, "Tergesa? Klik tombol Lewati saja", Toast.LENGTH_LONG).show()
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK'
+            statusAdd = true
+            filePath = data?.data!!
+
+            filePath = data.getData()!!
+
+            Glide.with(this)
+                .load(filePath)
+                .into(iv_poster)
+
+            Log.v("User", "file uri upload"+filePath )
+
+            btn_save.visibility = View.VISIBLE
+            iv_add.setImageResource(R.drawable.ic_btn_delete)
+
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
+        }
     }
 }

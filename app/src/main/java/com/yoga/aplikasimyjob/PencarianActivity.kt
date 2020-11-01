@@ -31,7 +31,7 @@ class PencarianActivity : AppCompatActivity() {
     lateinit var context : Context
     lateinit var mDatabase : DatabaseReference
 
-    lateinit var FirebaseRecyclerAdapter : FirebaseRecyclerAdapter<userS, UsersViewHolder>
+    lateinit var FirebaseRecyclerAdapter : FirebaseRecyclerAdapter<User, UsersViewHolder>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,9 +87,9 @@ class PencarianActivity : AppCompatActivity() {
                 searchText + "\uf8ff"
             )
 
-            FirebaseRecyclerAdapter = object : FirebaseRecyclerAdapter<userS, UsersViewHolder>(
+            FirebaseRecyclerAdapter = object : FirebaseRecyclerAdapter<User, UsersViewHolder>(
 
-                userS::class.java,
+                User::class.java,
                 R.layout.item_pencarian,
                 UsersViewHolder::class.java,
                 firebaseSearchQuery
@@ -98,7 +98,7 @@ class PencarianActivity : AppCompatActivity() {
             ) {
                 override fun populateViewHolder(
                     viewHolder: UsersViewHolder,
-                    model: userS?,
+                    model: User?,
                     position: Int
                 ) {
 
@@ -110,8 +110,8 @@ class PencarianActivity : AppCompatActivity() {
                     viewHolder.mview.tv_deskripsi.setText(model?.deskripsi)
                     viewHolder.mview.tv_nomer.setText(model?.notlp)
 
-                    Picasso.with(applicationContext).load(model?.urlportofolio).into(viewHolder.mview.iv_poster)
-                    Picasso.with(applicationContext).load(model?.url).into(viewHolder.mview.iv_profil)
+                    Picasso.with(applicationContext).load(model?.url).into(viewHolder.mview.iv_poster)
+//                    Picasso.with(applicationContext).load(model?.url).into(viewHolder.mview.iv_profil)
 
 
                 }

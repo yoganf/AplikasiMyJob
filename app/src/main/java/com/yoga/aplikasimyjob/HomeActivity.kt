@@ -36,6 +36,7 @@ class HomeActivity : AppCompatActivity() {
         iv_menu3.setOnClickListener {
             setFragment(fragmentProfil)
 
+
             changeIcon(iv_menu1, R.drawable.home_icon)
             changeIcon(iv_menu2, R.drawable.search_icon)
             changeIcon(iv_menu3, R.drawable.profil_icon)

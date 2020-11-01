@@ -11,22 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/tv_nama"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="16dp"
-            android:editable="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nama"
-            android:textColor="@color/colorblue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="0dp"
@@ -43,6 +27,7 @@
             android:id="@+id/imageView10"
             android:layout_width="0dp"
             android:layout_height="8dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/holo_blue_bright"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -68,28 +53,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/buttonblue"
             android:text="Edit Profil"
             android:textColor="@color/colorblue"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/btn_logout" />
 
         <Button
             android:id="@+id/bt_edit_portofolio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/button2"
             android:text="Edit Portofolio"
             android:textColor="@color/colorblue"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_edit_profil" />
 
@@ -111,6 +97,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="16dp"
             android:text="Username"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,6 +109,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="16dp"
             android:text="Alamat Email"
             app:layout_constraintEnd_toEndOf="parent"
@@ -143,53 +131,68 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/tv_user"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/btn_logout"
+            android:layout_width="338dp"
+            android:layout_height="54dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:editable="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Username"
+            android:background="@drawable/buttonblue"
+            android:gravity="center"
+            android:text="Logout"
             android:textColor="@color/colorblue"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="377dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/common_google_signin_btn_text_light_normal_background"
+            android:text="TextView"
+            android:textColor="@color/colorblue"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="377dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/common_google_signin_btn_text_light_normal_background"
+            android:text="TextView"
+            android:textColor="@color/colorblue"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
-        <EditText
+        <TextView
             android:id="@+id/tv_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="377dp"
+            android:layout_height="41dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:editable="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Email"
+            android:background="@drawable/common_google_signin_btn_text_light_normal_background"
+            android:text="TextView"
             android:textColor="@color/colorblue"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView35" />
-
-        <TextView
-            android:id="@+id/btn_logout"
-            android:layout_width="144dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="Logout"
-            android:textColor="@color/colorblue"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_edit_portofolio" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
