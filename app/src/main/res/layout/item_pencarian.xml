@@ -153,30 +153,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
         <TextView
-                android:id="@+id/textView43"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center|center_horizontal"
-                android:text="Salin nomer telfon untuk mulai menghubungi"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nomer" />
-
-        <Button
-            android:id="@+id/bt_copy"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_marginTop="8dp"
-            android:onClick="copy"
-            android:background="@drawable/copyicon"
-            app:layout_constraintStart_toEndOf="@+id/tv_nomer"
-            app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
-
-        <TextView
             android:id="@+id/tv_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -184,6 +160,22 @@
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_judul" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/buttonblue"
+            android:onClick="copy"
+            android:text="Hubung"
+            android:textColor="@color/colorblue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nomer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -121,7 +121,6 @@ class DaftarFotoActivity : AppCompatActivity(), PermissionListener {
                 preferences.setValues("nama", user.nama.toString())
                 preferences.setValues("user", user.username.toString())
                 preferences.setValues("url", user.url.toString())
-                preferences.setValues("urlportofolio", "")
                 preferences.setValues("email", user.email.toString())
                 preferences.setValues("judul", user.judul.toString())
                 preferences.setValues("tarif", user.tarif.toString())

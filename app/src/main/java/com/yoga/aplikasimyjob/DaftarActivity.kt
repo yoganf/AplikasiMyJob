@@ -82,6 +82,9 @@ class DaftarActivity : AppCompatActivity() {
             et_deskripsi.visibility = View.VISIBLE
             spinnerKota2.visibility = View.VISIBLE
             spinnerPekerjaan2.visibility = View.VISIBLE
+            textView36.visibility = View.VISIBLE
+            textView37.visibility = View.VISIBLE
+            btn_portofolio.visibility = View.INVISIBLE
 
         }
 

@@ -11,7 +11,7 @@
     <string name="selected_item">Pekerjaan terpilih:</string>
     <string name="selected_item2">Kota terpilih:</string>
     <string-array name="pilih_kategori">
-        <item>"-Pilih Jenis Pekerjaan-"</item>
+        <item>""</item>
         <item>"Analisis"</item>
         <item>"Konsultan"</item>
         <item>"Voice Over"</item>
@@ -30,7 +30,7 @@
         <item>"Lainnya"</item>
     </string-array>
     <string-array name="pilih_kota">
-        <item>-Pilih Kota-</item>
+        <item>""</item>
         <item>"Jakarta Selatan"</item>
         <item>"Jakarta Utara"</item>
         <item>"jakarta Timur"</item>
